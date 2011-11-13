@@ -1,0 +1,13 @@
+<html>
+<script>
+	chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+		if (request.command == "getSelectedAccount") {
+			var toAccount = JSON.parse(localStorage.getItem('toAccount')) || {};
+			localStorage.removeItem('toAccount');
+			sendResponse(toAccount);
+		} else {
+			sendResponse({}); // snub them.
+		}
+	});
+</script>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "切切(QieQie)",
+  "version": "0.1",
+  "description": "目前切切(QieQie)只支持新浪微博帐号的切换，下个版本将会支持任意站点的帐号切换。",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "网站帐号切切切",
+    "default_popup": "popup.html"
+  },
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+      "matches": ["http://weibo.com/"],
+      "run_at": "document_end",
+      "js": ["assets/jquery.js", "assets/login_content_script.js"]
+    }
+  ],
+  "options_page": "options.html",
+  
+  "permissions": [
+    "tabs","http://weibo.com/*"
+  ]
+}
