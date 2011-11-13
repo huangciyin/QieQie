@@ -1,7 +1,7 @@
 chrome.extension.sendRequest({
 	command : "getSelectedAccount"
 }, function(response) {
-	if (response) {
+	if (response && response.loginname) {
 		$('<div />').html('正在登录....某些奇怪的情况下此页面会无法正常跳转，请点击登录按钮！').css({
 			'position' : 'absolute',
 			'top' : 0,

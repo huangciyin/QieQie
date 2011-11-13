@@ -2,9 +2,13 @@ $(function(){
 	
 	var accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 	
-	$.each(accounts, function(i, account) {
-		$('<li />').data('account', account).html( '新浪微博 - ' + account.loginname).appendTo($('#accounts'));
-	});
+	if (accounts.length == 0) {
+		$('#accounts').html('<div style="color:red;">请先设置网站帐号！</div>');
+	} else {
+		$.each(accounts, function(i, account) {
+			$('<li />').data('account', account).html( '新浪微博 - ' + account.loginname).appendTo($('#accounts'));
+		});
+	}
 	
 	$("#accounts li").click(function(){
 		

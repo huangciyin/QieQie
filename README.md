@@ -6,8 +6,13 @@
 安装
 ----
 
-* 方式1：从Chrome Web Store安装: 还没上传！
-* 方式2：[点击此链接直接安装](http://)
+* 方式1：从Chrome Web Store安装: 这个还没有好，请先使用方式2安装！
+* 方式2：[点击此链接直接安装](https://github.com/topxia/QieQie/blob/master/packaged/QieQie.crx?raw=true)
+
+已知BUG
+------
+
+* 我在Windows XP && Chrome 15.0.874.120下测试时，发现通过切切跳转到新浪微博登录页面时，有时(这个时候的页面表现为用户名输入框边上没有"X")会无法自动登录，还需手工点击下“登录”按钮，这个很奇怪，我还没找到解决办法！在Ubuntu下测试则无此问题！
 
 联系我
 ------
