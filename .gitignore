@@ -1,2 +1,4 @@
 .project
 .settings/*
+src.crx
+src.pem

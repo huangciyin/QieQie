@@ -6,18 +6,12 @@
 安装
 ----
 
-### 从Chrome Web Store安装
-
-### 点击以下链接安装
-
-[安装 切切(QieQie)](http://)
-
+* 方式1：从Chrome Web Store安装: 还没上传！
+* 方式2：[点击此链接直接安装](http://)
 
 联系我
 ------
 
 * Email/Gtalk: wellming.li@gmail.com
 * Site: http://www.howzhi.com
-
-
 
