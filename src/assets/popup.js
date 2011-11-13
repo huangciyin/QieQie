@@ -15,6 +15,8 @@ $(function(){
 		var account = $(this).data('account');
 		localStorage.setItem('toAccount', JSON.stringify(account));
 		
+		_gaq.push(['_trackEvent', 'Sites', 'Qie', 'Qie to ' + account.site + '.']);
+		
 		$.getScript('http://weibo.com/logout.php', function(){
 			chrome.tabs.getSelected(null, function(tab) {
 				chrome.tabs.update(tab.id, {url:'http://weibo.com'});
