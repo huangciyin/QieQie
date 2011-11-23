@@ -13,8 +13,10 @@ var AccountList = {
 		html += '<tr>';
 		html += '<td><select class="site" name="site"><option value="weibo.com">新浪微博</option></select></td>';
 
-		html += '<td><input type="text" class="loginname" name="loginname" value="' + (account ?  account.loginname : '') + '" /></td>';
-		html += '<td><input type="password" class="password" name="password" value="' + (account ?  account.password : '') + '"/></td>';
+		html += '<td><input type="text" class="loginname" name="loginname" value="'
+				+ (account ? account.loginname : '') + '" /></td>';
+		html += '<td><input type="password" class="password" name="password" value="'
+				+ (account ? account.password : '') + '"/></td>';
 
 		html += '<td><a href="javascript:;" class="delete" title="删除该帐号">X</a></td>';
 		html += '</tr>';
@@ -23,7 +25,19 @@ var AccountList = {
 	}
 };
 
+var OptionsPage = {
+	init : function() {
+		$("#account-options-add-site-button").click(function() {
+			AddSitePage.open();
+		});
+	}
+};
+
 $(function() {
+	OptionsPage.init();
+	AddSitePage.init();
+	
+	SiteListPanel.init();
 
 	AccountList.init();
 
@@ -50,12 +64,12 @@ $(function() {
 				password : password
 			});
 		});
-		
+
 		localStorage.setItem('accounts', JSON.stringify(accounts));
-		
+
 		$("#message").hide().html('<div class="success">保存成功!</div>').fadeIn();
-		
-		setTimeout(function(){
+
+		setTimeout(function() {
 			$("#message").fadeOut();
 		}, 2000);
 

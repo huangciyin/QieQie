@@ -1,123 +1,196 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>切切设置</title>
+
+<link rel="stylesheet" href="assets/styles/chrome-ui-base.css" type="text/css">
+<link rel="stylesheet" href="assets/styles/base.css" type="text/css">
+<link rel="stylesheet" href="assets/styles/options.css" type="text/css">
 <script src="assets/jquery.js"></script>
+<script src="assets/libs/jquery.tools.min.js"></script>
+<script src="assets/scripts/utils.js"></script>
+
+<script src="assets/scripts/sitelist.js"></script>
+<script src="assets/scripts/sitelist_panel.js"></script>
+<script src="assets/scripts/addsite_page.js"></script>
+
 <script src="assets/options.js"></script>
-
-<style>
-body {
-	font-family: arial, sans-serif;
-	margin: 10px;
-	background: #EBEFF9;
-	font-size: 13px;
-}
-
-.container {
-	background-color: white;
-	border: 3px solid #BEC9CE;
-	border-bottom-left-radius: 20px 20px;
-	border-bottom-right-radius: 20px 20px;
-	border-top-left-radius: 20px 20px;
-	border-top-right-radius: 20px 20px;
-	padding: 30px;
-	text-align: left;
-	margin: 50px auto 20px auto;
-	height: auto;
-	width: 600px;
-}
-
-#accounts {
-	margin-bottom: 30px;
-}
-
-#accounts table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
-}
-
-#accounts td,#accounts th {
-	border-bottom: 1px solid #ccc;
-	padding: 5px 0;
-}
-
-#accounts th {
-	border-width: 2px;
-}
-
-#toolbar {
-	margin: 30px 0;
-}
-
-#projectInfo {
-	margin: 30px 0;
-}
-
-.error,.alert,.notice,.success,.info {padding: 0.8em;margin-bottom: 1em;border: 2px solid #ddd;}
-.error,.alert {background: #fbe3e4;color: #8a1f11;border-color: #fbc2c4;}
-.notice {background: #fff6bf;color: #514721;border-color: #ffd324;}
-.success {background: #e6efc2;color: #264409;border-color: #c6d880;}
-.info {background: #d5edf8;color: #205791;border-color: #92cae4;}
-.error a,.alert a {color: #8a1f11;}
-.notice a {color: #514721;}
-.success a {color: #264409;}
-.info a {color: #205791;}
-</style>
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26998558-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
+<script src="assets/ga.js"></script>
 </head>
 <body>
 	<div class="container">
 		<h1>切切设置</h1>
-		<div class="about">
-			目前切切只支持新浪微博帐号的切换，下个版本将会支持任意站点的帐号切换。<br />
-			<span style="color: red;">注意：切切(QieQie)不会窃取你的你的帐号密码，但帐号密码信息是储存在你的本地电脑中的，如在公用电脑上使用，请注意安全哦！</span>
+		<div class="options">
+			<div class="site-options">
+				<h3>站点</h3>
+				<ul id="site-options-list" class="list">
+					<li>
+						<div class="account-number">5</div>
+						<div class="site-name">新浪微博</div>
+
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+
+					</li>
+
+					<li class="selected">
+						<div class="account-number">5</div>
+						<div class="site-name">新浪微博新浪微博新浪微博微博新浪微博</div>
+
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+
+					</li>
+
+
+					<li>
+						<div class="account-number">5</div>
+						<div class="site-name">新浪微博</div>
+
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+
+					</li>
+
+				</ul>
+
+				<div class="site-options-bottom">
+					<button id="account-options-add-site-button">新增站点</button>
+				</div>
+
+			</div>
+			<div class="account-options">
+				<h3>帐号</h3>
+
+				<ul id="account-options-list">
+					<li>
+						<div class="account">wellmiing.li@gmail.comwellmiing.li@gmail.comwellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li class="selected">
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li>
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li>
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li>
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li>
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+					<li>
+						<div class="account">wellmiing.li@gmail.com</div>
+						<div class="btns">
+							<div class="edit-btn" title="编辑"></div>
+							<div class="close-btn" title="删除"></div>
+						</div>
+					</li>
+
+				</ul>
+
+				<div class="account-options-bottom">
+					<button id="account-options-add-account-button">新增站点</button>
+				</div>
+
+			</div>
+
 		</div>
 
-		<div id="accounts">
-			<h2>帐号列表</h2>
 
-			<table>
-				<thead>
-					<tr>
-						<th>站点</th>
-						<th>用户名</th>
-						<th>密码</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
+		<div id="overlay" class="overlay" hidden>
+			<div id="add-site-page" class="page" hidden>
+				<h1>新增网站</h1>
+				<div class="content-area">
+					<div class="input">
+						<label>
+							<div>网站名称</div> <input type="text" name="name" />
+						</label>
+					</div>
 
-				</tbody>
+					<div class="input">
+						<label>
+							<div>域名</div> <input type="text" name="domain" placeholder="顶级域名，例如abc.com" />
+							<span class="hint">域名设定之后不能修改</span>
+						</label>
+					</div>
 
-			</table>
+					<div class="input">
+						<label>
+							<div>登录页面地址</div> <input type="text" name="login_url" class="wide" placeholder="" />
+						</label>
+					</div>
 
-			<a href="javascript:;" id="add-account">新增帐号</a>
+					<div class="input">
+						<label>
+							<div>退出页面地址</div> <input type="text" name="logout_url" class="wide" placeholder="网站退出按钮所对应的链接地址" />
+						</label>
+					</div>
 
+					<div class="input">
+						<label>
+							<div>登录脚本</div> <textarea type="text" name="login_script" class="wide" placeholder="支持jQuery语法"></textarea>
+						</label>
+					</div>
+
+				</div>
+				<div class="action-area">
+					<button type="reset">取消</button>
+					<button type="submit" disabled>确认</button>
+
+				</div>
+			</div>
 		</div>
-		<div id="toolbar">
-			<button id="save">保存</button>
-		</div>
-		
+
+
 		<div id="message"></div>
-		
+
+
+		<div class="about">
+			<span style="color: #f90;">注意：切切(QieQie)不会窃取你的你的帐号密码，但帐号密码信息是储存在你的本地电脑中的，如在公用电脑上使用，请注意安全哦！</span>
+		</div>
+
 		<div id="projectInfo">
-		  项目地址：<a href="https://github.com/topxia/QieQie" target="_blank">https://github.com/topxia/QieQie</a>
+			项目地址：<a href="https://github.com/topxia/QieQie" target="_blank">https://github.com/topxia/QieQie</a>
 		</div>
 
 	</div>
