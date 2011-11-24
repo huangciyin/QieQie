@@ -31,6 +31,10 @@ body {
 	margin-top: 12px;
 }
 
+.options .message {
+	-webkit-margin-start: 12px;
+}
+
 .site-options,.account-options {
 	border: 1px solid #CCC;
 	vertical-align: top;
@@ -123,8 +127,7 @@ body {
 	line-height: 32px;
 }
 
-#account-options-list li.selected,#account-options-list li:hover.selected
-	{
+#account-options-list li.selected,#account-options-list li:hover.selected {
 	background: #f0f0f0;
 }
 
@@ -179,27 +182,24 @@ body {
 	margin: 30px 0;
 }
 
-#site-form-page input, #account-form-page input {
-	width:250px;
+#site-form-page input,#account-form-page input {
+	width: 250px;
 }
 
-#site-form-page, account-form-page {
-	width:500px;
+#site-form-page,account-form-page {
+	width: 500px;
 }
 
-#site-form-page input.wide,
-#site-form-page textarea.wide,
-#account-form-page input.wide,
-#account-form-page textarea.wide {
-	width:400px;
+#site-form-page input.wide,#site-form-page textarea.wide,#account-form-page input.wide,#account-form-page textarea.wide
+	{
+	width: 400px;
 }
 
-#site-form-page textarea,
-#account-form-page textarea {
-	height:80px;
-    resize: none;
+#site-form-page textarea,#account-form-page textarea {
+	height: 80px;
+	resize: none;
 }
-#site-form-page .hint,
-#account-form-page .hint  {
-	color:#999;
+
+#site-form-page .hint,#account-form-page .hint {
+	color: #999;
 }

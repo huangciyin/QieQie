@@ -25,12 +25,42 @@ var SitesPanel = {
 				return true;
 			});
 		});
+		
+		Sites.connect('delete', function(e, site){
+			console.log('delete');
+			$("#site-options-list").find('li').each(function(){
+				if ($(this).data('domain') == site.domain) {
+					$(this).remove();
+					return false;
+				}
+				return true;
+			});
+			
+			AccountsPanel.reset();
+			
+		});
+		
 
 		Sites.reload();
 		
 		$("#site-options-list").on('dblclick', 'li', function(){
 			SiteFormPage.open(Sites.get($(this).data('domain')));
 		});
+		
+		$("#site-options-list").on('click', '.edit-btn', function(){
+			var domain = $(this).parents('li').data('domain');
+			SiteFormPage.open(Sites.get(domain));
+		});
+		
+		$("#site-options-list").on('click', '.close-btn', function(){
+			if (!confirm('您真的要删除该网站及下属的所有帐号吗？')) {
+				return true;
+			}
+			
+			var domain = $(this).parents('li').data('domain');
+			Sites.del(Sites.get(domain));
+		});
+		
 		
 		$("#site-options-list").on('click', 'li', function(){
 			if ($(this).hasClass('selected')) {

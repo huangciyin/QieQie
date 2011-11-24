@@ -61,6 +61,14 @@ var Accounts = {
 		this._persist();
 		this.notify('delete', account);
 	},
+	
+	delall: function(site) {
+		localStorage.removeItem('accounts_' + site.domain);
+		this.site = null;
+		this.data = null;
+		this.notify('delall', this.data);
+	},
+	
 	exist : function(account) {
 		var self = this;
 		if (typeof (account) == 'string') {

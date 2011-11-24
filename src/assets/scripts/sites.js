@@ -25,6 +25,25 @@ var Sites = {
 			self.add(site);
 		}
 	},
+	del : function(site) {
+		if (!this.exist(site)) {
+			return;
+		}
+
+		var sitelist = [];
+		$.each(this.data, function(i, item) {
+			if (site.domain == item.domain) {
+				return true;
+			}
+			sitelist.push(item);
+		});
+		this.data = sitelist;
+		this._persist();
+		
+		Accounts.delall(site);
+		
+		this.notify('delete', site);
+	},
 	update : function(site) {
 		var self = this;
 

@@ -4,6 +4,13 @@ var AccountsPanel = {
 		
 		Accounts.connect('reload', function(e, data) {
 			var html = [];
+			
+			if (data.length == 0) {
+				$(".account-options").find('.message').removeAttr('hidden').html('空空的...');
+			} else {
+				$(".account-options").find('.message').attr('hidden', '');
+			}
+			
 			$.each(data, function(i, item) {
 				html.push(self.getItemHtml(item));
 			});
@@ -12,6 +19,7 @@ var AccountsPanel = {
 		
 		Accounts.connect('add', function(e, account){
 			$("#account-options-list").append(self.getItemHtml(account));
+			$(".account-options").find('.message').attr('hidden', '');
 		});
 		
 		Accounts.connect('update', function(e, account){
@@ -32,6 +40,7 @@ var AccountsPanel = {
 				}
 				return true;
 			});
+			
 		});
 		
 		SitesPanel.connect('selected', function(e, site) {
@@ -84,4 +93,11 @@ var AccountsPanel = {
 		html += '</li>';
 		return html;
 	},
+	
+	reset: function() {
+		$(".account-options").find('h3').html('帐号');
+		$("#account-options-list").empty();
+		$(".account-options").find('.message').removeAttr('hidden').html('尚未选定站点！');
+	}
+	
 };

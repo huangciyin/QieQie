@@ -22,5 +22,8 @@ $(function() {
 	AccountFormPage.init();
 
 	OptionsPage.init();
+	
+	DefaultSitesPage.init();
+	DefaultSitesPage.open();
 
 });
