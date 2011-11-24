@@ -1,5 +1,5 @@
-var AddSitePage = {
-	pageName : 'add-site-page',
+var SiteFormPage = {
+	pageName : 'site-form-page',
 	init : function() {
 		var self = this;
 		var $page = $("#" + this.pageName);
@@ -16,7 +16,7 @@ var AddSitePage = {
 			site.logoutUrl = $page.find('[name=logout_url]').val();
 			site.loginScript = $page.find('[name=login_script]').val();
 
-			SiteList.save(site);
+			Sites.save(site);
 
 			closeAllOverlay();
 		});
@@ -44,6 +44,8 @@ var AddSitePage = {
 		$page.find('[name=login_url]').val(site.loginUrl);
 		$page.find('[name=logout_url]').val(site.logoutUrl);
 		$page.find('[name=login_script]').val(site.loginScript);
+		
+		this.checkInputFields();
 
 		showOverlay(this.pageName);
 	},

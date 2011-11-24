@@ -1,4 +1,4 @@
-var SiteList = {
+var Sites = {
 	data : null,
 
 	get : function(domain) {
@@ -71,11 +71,11 @@ var SiteList = {
 	},
 
 	notify : function(eventName, eventData) {
-		$('body').trigger('qieqie.sitelist.' + eventName, [ eventData ]);
+		$('body').trigger('qieqie.sites.' + eventName, [ eventData ]);
 	},
 
 	connect : function(eventName, callback) {
-		$('body').bind('qieqie.sitelist.' + eventName, callback);
+		$('body').bind('qieqie.sites.' + eventName, callback);
 	}
 
 };

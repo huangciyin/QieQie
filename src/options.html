@@ -7,16 +7,20 @@
 <link rel="stylesheet" href="assets/styles/chrome-ui-base.css" type="text/css">
 <link rel="stylesheet" href="assets/styles/base.css" type="text/css">
 <link rel="stylesheet" href="assets/styles/options.css" type="text/css">
-<script src="assets/jquery.js"></script>
+
+<script src="assets/libs/jquery.js"></script>
 <script src="assets/libs/jquery.tools.min.js"></script>
+
 <script src="assets/scripts/utils.js"></script>
+<script src="assets/scripts/sites.js"></script>
+<script src="assets/scripts/sites_panel.js"></script>
+<script src="assets/scripts/accounts.js"></script>
+<script src="assets/scripts/accounts_panel.js"></script>
+<script src="assets/scripts/siteform_page.js"></script>
+<script src="assets/scripts/accountform_page.js"></script>
+<script src="assets/scripts/options.js"></script>
 
-<script src="assets/scripts/sitelist.js"></script>
-<script src="assets/scripts/sitelist_panel.js"></script>
-<script src="assets/scripts/addsite_page.js"></script>
-
-<script src="assets/options.js"></script>
-<script src="assets/ga.js"></script>
+<script src="assets/scripts/ga.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -70,66 +74,10 @@
 				<h3>帐号</h3>
 
 				<ul id="account-options-list">
-					<li>
-						<div class="account">wellmiing.li@gmail.comwellmiing.li@gmail.comwellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li class="selected">
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li>
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li>
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li>
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li>
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
-					<li>
-						<div class="account">wellmiing.li@gmail.com</div>
-						<div class="btns">
-							<div class="edit-btn" title="编辑"></div>
-							<div class="close-btn" title="删除"></div>
-						</div>
-					</li>
-
 				</ul>
 
 				<div class="account-options-bottom">
-					<button id="account-options-add-account-button">新增站点</button>
+					<button id="add-account-button">添加帐号</button>
 				</div>
 
 			</div>
@@ -138,7 +86,7 @@
 
 
 		<div id="overlay" class="overlay" hidden>
-			<div id="add-site-page" class="page" hidden>
+			<div id="site-form-page" class="page" hidden>
 				<h1>新增网站</h1>
 				<div class="content-area">
 					<div class="input">
@@ -179,6 +127,37 @@
 
 				</div>
 			</div>
+      
+			<div id="account-form-page" class="page" hidden>
+				<h1>帐号表单</h1>
+				<div class="content-area">
+					<div class="input">
+						<label>
+							<div>登录用户名</div> <input type="text" name="username" required />
+						</label>
+					</div>
+
+					<div class="input">
+						<label>
+							<div>密码</div> <input type="password" name="password" placeholder="" required />
+						</label>
+					</div>
+
+					<div class="input">
+						<label>
+							<div>别名</div> <input type="text" name="alias" placeholder="选填；例如可设为'运营帐号'" />
+						</label>
+					</div>
+				</div>
+				<div class="action-area">
+					<button type="reset">取消</button>
+					<button type="submit" disabled>确认</button>
+
+				</div>
+			</div>
+      
+      
+      
 		</div>
 
 

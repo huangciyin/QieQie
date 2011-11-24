@@ -179,24 +179,27 @@ body {
 	margin: 30px 0;
 }
 
-
-#add-site-page input {
+#site-form-page input, #account-form-page input {
 	width:250px;
 }
 
-#add-site-page {
+#site-form-page, account-form-page {
 	width:500px;
 }
 
-#add-site-page input.wide,
-#add-site-page textarea.wide {
+#site-form-page input.wide,
+#site-form-page textarea.wide,
+#account-form-page input.wide,
+#account-form-page textarea.wide {
 	width:400px;
 }
 
-#add-site-page textarea {
+#site-form-page textarea,
+#account-form-page textarea {
 	height:80px;
-resize: none;
+    resize: none;
 }
-#add-site-page .hint {
+#site-form-page .hint,
+#account-form-page .hint  {
 	color:#999;
 }

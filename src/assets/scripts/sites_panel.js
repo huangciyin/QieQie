@@ -1,10 +1,8 @@
-var SiteListPanel = {
+var SitesPanel = {
 	init : function() {
 		var self = this;
 
-		SiteList.connect('reload', function(e, data) {
-			console.log('reload');
-			
+		Sites.connect('reload', function(e, data) {
 			var html = [];
 			$.each(data, function(i, item) {
 				html.push(self.getItemHtml(item));
@@ -14,11 +12,11 @@ var SiteListPanel = {
 			
 		});
 		
-		SiteList.connect('add', function(e, site){
+		Sites.connect('add', function(e, site){
 			$("#site-options-list").append(self.getItemHtml(site));
 		});
 		
-		SiteList.connect('update', function(e, site){
+		Sites.connect('update', function(e, site){
 			$("#site-options-list").find('li').each(function(){
 				if ($(this).data('domain') == site.domain) {
 					$(this).replaceWith(self.getItemHtml(site));
@@ -28,11 +26,20 @@ var SiteListPanel = {
 			});
 		});
 
-		SiteList.reload();
+		Sites.reload();
 		
 		$("#site-options-list").on('dblclick', 'li', function(){
-			console.log(SiteList.get($(this).data('domain')));
-			AddSitePage.open(SiteList.get($(this).data('domain')));
+			SiteFormPage.open(Sites.get($(this).data('domain')));
+		});
+		
+		$("#site-options-list").on('click', 'li', function(){
+			if ($(this).hasClass('selected')) {
+				return true;
+			}
+			
+			$("#site-options-list").find('li.selected').removeClass('selected');
+			$(this).addClass('selected');
+			self.notify('selected', Sites.get($(this).data('domain')));
 		});
 
 	},
@@ -49,5 +56,12 @@ var SiteListPanel = {
 		html += '</div>';
 		html += '</li>';
 		return html;
+	},
+	notify : function(eventName, eventData) {
+		$('body').trigger('qieqie.sites_panel.' + eventName, [ eventData ]);
+	},
+
+	connect : function(eventName, callback) {
+		$('body').bind('qieqie.sites_panel.' + eventName, callback);
 	}
 };
