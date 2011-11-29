@@ -203,3 +203,19 @@ body {
 #site-form-page .hint,#account-form-page .hint {
 	color: #999;
 }
+
+#default-sites-page {
+	width: 450px;
+    
+}
+
+#default-sites-page .hint {
+	margin: 15px 0;
+color: #666;
+	
+}
+
+#default-sites-box label {
+	margin: 10px 15px 10px 0;
+line-height:2em;
+}

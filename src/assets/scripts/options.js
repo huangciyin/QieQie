@@ -22,8 +22,11 @@ $(function() {
 	AccountFormPage.init();
 
 	OptionsPage.init();
-	
 	DefaultSitesPage.init();
-	DefaultSitesPage.open();
+	
+	var initialized = localStorage.getItem('initialized') || false;
+	if (!initialized) {
+		DefaultSitesPage.open();
+	}
 
 });

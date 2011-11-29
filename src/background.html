@@ -5,29 +5,22 @@
 	chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 		if (request.command == "getSelectedAccount") {
 			var toAccount = JSON.parse(localStorage.getItem('toAccount')) || {};
+			var toSite = JSON.parse(localStorage.getItem('toSite')) || {};
 			localStorage.removeItem('toAccount');
-			sendResponse(toAccount);
+			localStorage.removeItem('toSite');
+			
+			var response = {};
+			response.account = toAccount;
+			response.site = toSite;
+			
+			sendResponse(response);
 		} else {
 			sendResponse({}); // snub them.
 		}
 	});
 </script>
 
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26998558-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
+<script src="assets/scripts/ga.js"></script>
 </head>
 
 </html>

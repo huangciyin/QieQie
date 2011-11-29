@@ -1,8 +1,9 @@
 chrome.extension.sendRequest({
 	command : "getSelectedAccount"
 }, function(response) {
-	if (response && response.loginname) {
-		$('<div />').html('正在登录....某些奇怪的情况下此页面会无法正常跳转，请点击登录按钮！').css({
+	console.log(response);
+	if (response && response.account.username) {
+		$('<div />').html('正在登录....如页面长时间不跳转，请点击登录按钮！').css({
 			'position' : 'absolute',
 			'top' : 0,
 			'right' : 0,
@@ -11,11 +12,11 @@ chrome.extension.sendRequest({
 			'border' : '1px solid #ffd324',
 			'padding' : '0.8em',
 		}).appendTo($('body'));
+		
+		var username = response.account.username;
+		var password = response.account.password;
+		
+		eval(response.site.loginScript);
 
-		$('#loginname').focus();
-		$('#loginname').val(response.loginname);
-		$('#password').focus();
-		$('#password').val(response.password);
-		$("#login_submit_btn").click();
 	}
 });

@@ -1,0 +1,87 @@
+body {
+	font-family: arial, Verdana;
+	font-size: 12px;
+	width: 150px;
+	margin-bottom: 2px;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+ul.menus {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.menus li {
+	list-style: none;
+	cursor: pointer;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	border: 1px solid white;
+	color: #3d5d6a;
+	line-height: 26px;
+	text-indent: .5em;
+	white-space: nowrap;
+}
+
+ul.menus li:hover {
+	border-radius: 3px 3px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.4, hsl(215, 67%, 97%) ),
+		color-stop(0.41, hsl(213, 48%, 95%) ) );
+	border: solid 1px #c5cdd3;
+}
+
+.separator {
+	width: 100%;
+	border-top: 1px solid #ddd;
+	margin: 5px 0;
+}
+
+.wrapper {
+	text-align: center;
+	margin: 8px 0;
+}
+
+.wrapper .head {
+	position: relative;
+}
+
+.wrapper .head h3 {
+	position: relative;
+	padding: 0;
+	margin: 0 auto;
+	font-weight: normal;
+	font-size: 12px;
+	width: 30px;
+	background: #fff;
+	z-index: 2;
+	padding: 2px 1px;
+}
+
+.wrapper .head .line {
+	position: absolute;
+	border-bottom: 1px solid #ccc;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.info {
+	background: #d5edf8;
+	color: #205791;
+	border-color: #92cae4;
+	padding: 5px 5px;
+}
+
+.info a {
+	color: #205791;
+}
+
+#accounts-wrapper ul {
+	text-align:left;
+}

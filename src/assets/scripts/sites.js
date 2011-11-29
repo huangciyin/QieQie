@@ -12,6 +12,22 @@ var Sites = {
 		});
 		return site;
 	},
+	
+	getByHost: function(host) {
+		var site = null;
+		$.each(this.data, function(i, item){
+			if (host.lastIndexOf(item.domain) >=0) {
+				site = item;
+				return false;
+			}
+			return true;
+		});
+		return site;
+	},
+	
+	all: function() {
+		return this.data;
+	},
 
 	reload : function() {
 		this.data = JSON.parse(localStorage.getItem('sites') || "[]");

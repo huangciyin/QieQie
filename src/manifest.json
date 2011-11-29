@@ -15,13 +15,13 @@
   "background_page": "background.html",
   "content_scripts": [
     {
-      "matches": ["http://weibo.com/"],
+      "matches": ["http://*/*", "https://*/*"],
       "run_at": "document_end",
-      "js": ["assets/jquery.js", "assets/login_content_script.js"]
+      "js": ["assets/libs/jquery.js", "assets/login_content_script.js"]
     }
   ],
   "options_page": "options.html",
   "permissions": [
-    "tabs","http://weibo.com/*"
+    "tabs"
   ]
 }

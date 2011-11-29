@@ -2,31 +2,29 @@
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="assets/popup.css" type="text/css">
-    <script src="assets/jquery.js"></script>
-    <script src="assets/popup.js"></script>
-    
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26998558-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    
+    <link rel="stylesheet" href="assets/styles/popup.css" type="text/css">
+    <script src="assets/libs/jquery.js"></script>
+    <script src="assets/scripts/sites.js"></script>
+    <script src="assets/scripts/accounts.js"></script>
+    <script src="assets/scripts/popup.js"></script>
+    <script src="assets/scripts/ga.js"></script>
   </head>
 
   <body>
     <div>
-      <ul class="menus" id="accounts">
-      </ul>
-      <div class="separator"></div>
+      <div class="wrapper" id="no-sites-wrapper" hidden><div class="info">你还没有设置站点信息，请先设置一下吧！</div></div>
+      <div class="wrapper" id="jump-wrapper" hidden><div class="info">正在跳转，请稍后...</div></div>
+      
+      <div class="wrapper" id="sites-wrapper" hidden>
+        <div class="head"><h3>站点</h3><div class="line"></div></div>
+      </div>
+      
+      <div class="wrapper" id="accounts-wrapper" hidden>
+        <div class="head"><h3>帐号</h3><div class="line"></div></div>
+        <div class="info">请选择站点</div>
+        <ul class="menus" id="account-menus" hidden></ul>
+      </div>
+      
       <ul class="menus">
         <li id="options">设置</li>
       </ul>
