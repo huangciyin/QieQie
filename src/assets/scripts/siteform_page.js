@@ -14,6 +14,7 @@ var SiteFormPage = {
 			site.domain = $page.find('[name=domain]').val();
 			site.loginUrl = $page.find('[name=login_url]').val();
 			site.logoutUrl = $page.find('[name=logout_url]').val();
+			site.jumpUrl = $page.find('[name=jump_url]').val();
 			site.loginScript = $page.find('[name=login_script]').val();
 
 			Sites.save(site);
@@ -43,6 +44,7 @@ var SiteFormPage = {
 		$page.find('[name=domain]').val(site.domain);
 		$page.find('[name=login_url]').val(site.loginUrl);
 		$page.find('[name=logout_url]').val(site.logoutUrl);
+		$page.find('[name=jump_url]').val(site.jumpUrl);
 		$page.find('[name=login_script]').val(site.loginScript);
 		
 		this.checkInputFields();
@@ -56,7 +58,7 @@ var SiteFormPage = {
 		var success = true;
 
 		setTimeout(function() {
-			$page.find('input, textarea').each(function() {
+			$page.find('input[required], textarea[required]').each(function() {
 				if ($(this).val() == '') {
 					success = false;
 					return false;

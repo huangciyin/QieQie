@@ -9,10 +9,19 @@
 			localStorage.removeItem('toAccount');
 			localStorage.removeItem('toSite');
 			
+			if (toSite.jumpUrl && toSite.jumpUrl.length > 0) {
+				localStorage.setItem('jumpUrl', toSite.jumpUrl);
+			}
+			
 			var response = {};
 			response.account = toAccount;
 			response.site = toSite;
 			
+			sendResponse(response);
+		} else if (request.command == "getJumpUrl") {
+			var response = {};
+			response.jumpUrl = localStorage.getItem('jumpUrl') || '';
+			localStorage.removeItem('jumpUrl');
 			sendResponse(response);
 		} else {
 			sendResponse({}); // snub them.

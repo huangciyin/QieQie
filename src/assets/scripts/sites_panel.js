@@ -71,6 +71,10 @@ var SitesPanel = {
 			$(this).addClass('selected');
 			self.notify('selected', Sites.get($(this).data('domain')));
 		});
+		
+		$("#use-default-site-button").click(function(){
+			DefaultSitesPage.open();
+		});
 
 	},
 
