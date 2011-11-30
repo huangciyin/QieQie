@@ -7,72 +7,80 @@ var SitesPanel = {
 			$.each(data, function(i, item) {
 				html.push(self.getItemHtml(item));
 			});
-			
+
 			$("#site-options-list").html(html.join(''));
-			
+
 		});
-		
-		Sites.connect('add', function(e, site){
+
+		Sites.connect('add', function(e, site) {
 			$("#site-options-list").append(self.getItemHtml(site));
 		});
-		
-		Sites.connect('update', function(e, site){
-			$("#site-options-list").find('li').each(function(){
+
+		Sites.connect('update', function(e, site) {
+			$("#site-options-list").find('li').each(function() {
 				if ($(this).data('domain') == site.domain) {
+					var selected = $(this).hasClass('selected');
 					$(this).replaceWith(self.getItemHtml(site));
+					if (selected) {
+						$("#site-options-list").find('li').each(function() {
+							if ($(this).data('domain') == site.domain) {
+								$(this).click();
+								return false;
+							}
+							return true;
+						});
+					}
 					return false;
 				}
 				return true;
 			});
 		});
-		
-		Sites.connect('delete', function(e, site){
+
+		Sites.connect('delete', function(e, site) {
 			console.log('delete');
-			$("#site-options-list").find('li').each(function(){
+			$("#site-options-list").find('li').each(function() {
 				if ($(this).data('domain') == site.domain) {
 					$(this).remove();
 					return false;
 				}
 				return true;
 			});
-			
+
 			AccountsPanel.reset();
-			
+
 		});
-		
 
 		Sites.reload();
-		
-		$("#site-options-list").on('dblclick', 'li', function(){
+
+		$("#site-options-list").on('dblclick', 'li', function() {
 			SiteFormPage.open(Sites.get($(this).data('domain')));
 		});
-		
-		$("#site-options-list").on('click', '.edit-btn', function(){
+
+		$("#site-options-list").on('click', '.edit-btn', function() {
 			var domain = $(this).parents('li').data('domain');
 			SiteFormPage.open(Sites.get(domain));
 		});
-		
-		$("#site-options-list").on('click', '.close-btn', function(){
+
+		$("#site-options-list").on('click', '.close-btn', function() {
 			if (!confirm('您真的要删除该网站及下属的所有帐号吗？')) {
 				return true;
 			}
-			
+
 			var domain = $(this).parents('li').data('domain');
 			Sites.del(Sites.get(domain));
 		});
-		
-		
-		$("#site-options-list").on('click', 'li', function(){
+
+		$("#site-options-list").on('click', 'li', function() {
 			if ($(this).hasClass('selected')) {
 				return true;
 			}
-			
+
 			$("#site-options-list").find('li.selected').removeClass('selected');
 			$(this).addClass('selected');
 			self.notify('selected', Sites.get($(this).data('domain')));
 		});
-		
-		$("#use-default-site-button").click(function(){
+
+		$("#use-default-site-button").click(function() {
 			DefaultSitesPage.open();
 		});
 

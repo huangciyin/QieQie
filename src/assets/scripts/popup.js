@@ -11,7 +11,11 @@ function makeSiteSelect(sites) {
 function makeAccountMenus(accounts) {
 	var html = '';
 	$.each(accounts, function(i, account){
-		html += '<li data-username="' + account.username + '">' + account.username + '</li>'; 
+		if (account.alias) {
+			html += '<li data-username="' + account.username + '">' + account.alias + '&lt;' + account.username +  '&gt;</li>'; 
+		} else {
+			html += '<li data-username="' + account.username + '">' + account.username + '</li>'; 
+		}
 	});
 	return html;
 }
@@ -93,8 +97,6 @@ $(function() {
 			});
 			
 		});
-		
-		
 		
 	});
 	

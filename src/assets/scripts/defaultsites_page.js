@@ -51,6 +51,7 @@ var DefaultSitesPage = {
 
 	open : function(account) {
 		var $page = $("#" + this.pageName);
+		$page.find('input[type=checkbox]:checked').removeAttr('checked');
 		showOverlay(this.pageName);
 	},
 
@@ -103,8 +104,6 @@ var DefaultSitesPage = {
 		script.push('$("#signin_password").val(password);');
 		script.push('$("#signin-form input[type=submit]").click();');
 		site.loginScript = script.join("\n");
-		
-		
 		
 		sites.push(site);
 

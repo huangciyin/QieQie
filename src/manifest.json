@@ -1,7 +1,7 @@
 {
   "name": "切切(QieQie)",
-  "version": "0.1",
-  "description": "目前切切(QieQie)只支持新浪微博帐号的切换，下个版本将会支持任意站点的帐号切换。",
+  "version": "0.2",
+  "description": "切切(QieQie)只支任意网张的帐号一键切换，换马甲就是那么的简单。",
   "icons": { 
     "16": "assets/images/icon48.png",
     "48": "assets/images/icon48.png",
