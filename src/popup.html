@@ -1,36 +1,47 @@
 <html>
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="assets/styles/popup.css" type="text/css">
-    <script src="assets/libs/jquery.js"></script>
-    <script src="assets/scripts/sites.js"></script>
-    <script src="assets/scripts/accounts.js"></script>
-    <script src="assets/scripts/popup.js"></script>
-    <script src="assets/scripts/ga.js"></script>
-  </head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="assets/styles/popup.css" type="text/css">
+<script src="assets/libs/jquery.js"></script>
+<script src="assets/scripts/sites.js"></script>
+<script src="assets/scripts/accounts.js"></script>
+<script src="assets/scripts/popup.js"></script>
+<script src="assets/scripts/ga.js"></script>
+</head>
 
-  <body>
-    <div>
-      <div class="wrapper" id="no-sites-wrapper" hidden><div class="info">你还没有设置站点信息，请先设置一下吧！</div></div>
-      <div class="wrapper" id="jump-wrapper" hidden><div class="info">正在跳转，请稍后...</div></div>
-      
-      <div class="wrapper" id="sites-wrapper" hidden>
-        <div class="head"><h3>站点</h3><div class="line"></div></div>
-      </div>
-      
-      <div class="wrapper" id="accounts-wrapper" hidden>
-        <div class="head"><h3>帐号</h3><div class="line"></div></div>
-        <div class="info">请选择站点</div>
-        <ul class="menus" id="account-menus" hidden></ul>
-      </div>
-      
-      <ul class="menus">
-        <li id="options">设置</li>
-      </ul>
-    
+<body>
+  <div id="has-sites" hidden>
+    <div class="wrapper" id="jump-wrapper" hidden>
+      <div class="info">正在跳转，请稍后...</div>
     </div>
-  
-  </body>
+
+    <div class="wrapper" id="sites-wrapper" hidden>
+      <div class="head">
+        <h3>站点</h3>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="wrapper" id="accounts-wrapper" hidden>
+      <div class="head">
+        <h3>帐号</h3>
+        <div class="line"></div>
+      </div>
+      <div class="info">请选择站点</div>
+      <ul class="menus" id="account-menus" hidden></ul>
+    </div>
+
+  </div>
+  <div id="no-sites" hidden>
+    <div class="info">你还没有设置站点信息，请先设置一下吧！</div>
+  </div>
+
+  <ul class="menus">
+    <li id="options">设置</li>
+  </ul>
+
+
+</body>
 
 </html>

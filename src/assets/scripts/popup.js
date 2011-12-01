@@ -30,16 +30,22 @@ var getHost = function(url) {
 };
 
 $(function() {
+	$("#has-sites").attr('hidden', 'hidden');
+	$("#no-sites").attr('hidden', 'hidden');
+	$("#jump-wrapper").attr('hidden', 'hidden');
+	$("#sites-wrapper").attr('hidden', 'hidden');
+	$("#accounts-wrapper").attr('hidden', 'hidden');
+	
 
 	chrome.tabs.getSelected(null, function(tab) {
 		
 		Sites.connect('reload', function(e, sites) {
-			$("#jump-wrapper").attr('hidden', 'hidden');
 			if (sites.length == 0) {
-				$("#no-sites-wrapper").attr('hidden', 'hidden');
+				$("#no-sites").removeAttr('hidden');
 			} else {
-				$("#sites-wrapper").removeAttr('hidden');
+				$("#has-sites").removeAttr('hidden');
 				$("#sites-wrapper").append(makeSiteSelect(sites));
+				$("#sites-wrapper").removeAttr('hidden');
 				$("#accounts-wrapper").removeAttr('hidden');
 			}
 		});
