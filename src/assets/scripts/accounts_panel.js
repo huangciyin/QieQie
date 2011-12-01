@@ -44,7 +44,6 @@ var AccountsPanel = {
 		});
 		
 		SitesPanel.connect('selected', function(e, site) {
-			console.log('selected:', site);
 			$('.account-options h3').html(site.name + '的帐号');
 			Accounts.reload(site);
 		});

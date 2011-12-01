@@ -37,7 +37,6 @@ var SitesPanel = {
 		});
 
 		Sites.connect('delete', function(e, site) {
-			console.log('delete');
 			$("#site-options-list").find('li').each(function() {
 				if ($(this).data('domain') == site.domain) {
 					$(this).remove();
