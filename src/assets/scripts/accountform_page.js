@@ -14,11 +14,6 @@ var AccountFormPage = {
 			account.password = $page.find('[name=password]').val();
 			account.alias = $page.find('[name=alias]').val();
 			
-			if (Accounts.exist(account)) {
-				alert('该帐号已存在！');
-				return true;
-			}
-
 			Accounts.save(account);
 
 			closeAllOverlay();
@@ -32,11 +27,12 @@ var AccountFormPage = {
 
 	open : function(account) {
 		var $page = $("#" + this.pageName);
+		
+		$page.find("#edit-usernmae-hint").remove();
 
 		if (account == undefined) {
 			account = {};
 			$page.find('h1').html('新增帐号');
-			$page.find("#edit-usernmae-hint").remove();
 			$page.find('[name=username]').removeAttr('readonly');
 		} else {
 			$page.find('h1').html('编辑帐号');
